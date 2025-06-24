@@ -8,15 +8,18 @@
 import re
 import datetime
 import requests
+import os
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # ============ KONFIGURASI ============
-TELEGRAM_TOKEN = '8144593976:AAFUL4pkpCLG3Vvq6U5nerJUtKR3zV55bSE'
-AIRTABLE_API_KEY = 'pata4Q1Xxvp7F2ZHo.10438386bf4524b5fe374df986fbee94c9d8d19be74bce3eb05b47b3d0888297'
-BASE_ID = 'appCS8e67mFvHEUJg'
-TABLE_PENGELUARAN = 'Pengeluaran'
-TABLE_PEMASUKAN = 'Pemasukan'
+
+TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
+AIRTABLE_API_KEY = os.environ.get('AIRTABLE_API_KEY')
+BASE_ID = os.environ.get('BASE_ID')
+TABLE_PENGELUARAN = os.environ.get('TABLE_PENGELUARAN')
+TABLE_PEMASUKAN = os.environ.get('TABLE_PEMASUKAN')
+
 
 HEADERS = {
     'Authorization': f'Bearer {AIRTABLE_API_KEY}',
